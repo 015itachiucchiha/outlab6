@@ -1,0 +1,24 @@
+$purple: #8e44ad;
+.navbar{
+	 display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+.active{
+ color: #fff;
+ padding:20px;
+ background:$purple;
+	text-decoration: none;
+	border-radius:0.5em;
+font-size: 50px;font-family:Arial, Helvetica, sans-serif;
+  text-align: center;
+  transition: all 150ms ease-in-out;
+  &:hover {
+  color: $purple;
+    box-shadow: 0 0 10px 0 $purple inset, 0 0 10px 4px $purple;
+    background: #fff;
+
+  }
+}

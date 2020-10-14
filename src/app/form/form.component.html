@@ -1,0 +1,31 @@
+<form>
+	<div>
+	 	<label>Name</label>
+	 	<input [innerHTML]="data.name" type="text" name="name">
+	</div>
+	<br>
+	<div>
+	 	<label>Email</label>
+	 	<input [innerHTML]="data.email" type="email" name="email">
+	</div>
+	<br>
+	<div>
+		<label>Feedback</label>
+		<input [innerHTML]="data.feedback" type="radio" id="great" name="feedback">
+		<label for="great">Great</label>
+		<input [innerHTML]="data.feedback" type="radio" id="okay" name="feedback">
+		<label for="okay">Okay</label>
+		<input [innerHTML]="data.feedback" type="radio" id="notgood" name="feedback">
+		<label for="notgood">Not Good</label>
+	</div>
+	<div>
+	 	<label>Comments</label>
+	 	<textarea [innerHTML]="data.comment" name="comment"></textarea>
+	</div>
+	<br>
+	<button class="submitbutton" (click)="onSubmit()">Submit</button> 
+</form>
+<h3>Name: {{data.name}}</h3>
+<h3>Email: {{data.email}}</h3>
+<h3>Feedback: {{data.feedback}}</h3>
+<h3>Comments: {{data.comment}}</h3>
