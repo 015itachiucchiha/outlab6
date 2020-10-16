@@ -11,7 +11,6 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  data: Details;
   profileForm = this.fb.group({ name: '',email: '',feedback: '',comment: ''});
   
   constructor(private configService: ConfigService,private fb: FormBuilder) { }
@@ -21,22 +20,17 @@ export class FormComponent implements OnInit {
   }
 
   showConfig() {
-    this.configService.getConfig().subscribe((data: Details) => this.data = {
+    this.configService.getConfig().subscribe((data: Details) => this.profileForm = this.fb.group({
         name: data.name,
         email: data.email,
         feedback: data.feedback,
         comment: data.comment
-    });
+    }));
   }
 
   onSubmit() {
     console.warn(this.profileForm.value) ;
-  	this.configService.addPost(this.data).subscribe() ;
-  	this.showConfig() ;
-  	this.data.name = "" ;
-  	this.data.email = "" ;
-  	this.data.feedback = "" ;
-  	this.data.comment = "" ;
-   }
+  	this.configService.addPost(this.profileForm).subscribe() ;
+  }
 
 }
