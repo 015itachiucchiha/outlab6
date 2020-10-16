@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ConfigService } from '../config.service'; 
 import { Details } from '../details'
+import { FormBuilder } from '@angular/forms';
+import { FormArray } from '@angular/forms';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -9,8 +12,9 @@ import { Details } from '../details'
 })
 export class FormComponent implements OnInit {
   data: Details;
+  profileForm = this.fb.group({ name: '',email: '',feedback: '',comment: ''});
   
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService,private fb: FormBuilder) { }
 
   ngOnInit(): void { 
   	this.showConfig() ;
@@ -26,6 +30,7 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
+    console.warn(this.profileForm.value) ;
   	this.configService.addPost(this.data).subscribe() ;
   	this.showConfig() ;
   	this.data.name = "" ;

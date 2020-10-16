@@ -1,29 +1,36 @@
-<form>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 	<div>
 	 	<label>Name</label>
-	 	<input [innerHTML]="data.name" type="text" name="name">
+	 	<input formControlName="name" type="text" name="name">
 	</div>
 	<br>
 	<div>
 	 	<label>Email</label>
-	 	<input [innerHTML]="data.email" type="email" name="email">
+	 	<input formControlName="email" type="email" name="email">
 	</div>
 	<br>
 	<div>
-		<label>Feedback</label>
-		<input [innerHTML]="data.feedback" type="radio" id="great" name="feedback">
-		<label for="great">Great</label>
-		<input [innerHTML]="data.feedback" type="radio" id="okay" name="feedback">
-		<label for="okay">Okay</label>
-		<input [innerHTML]="data.feedback" type="radio" id="notgood" name="feedback">
-		<label for="notgood">Not Good</label>
+		<label for="feedback">Feedback:</label>
+            <div>
+              <input id="great" type="radio" value="great" name="feedback" formControlName="feedback">
+              <label for="great">Great</label>
+            </div>
+			<div>
+              <input id="okay" type="radio" value="okay" name="feedback" formControlName="feedback">
+              <label for="okay">Okay</label>
+           	</div>
+           	<div>
+              <input id="notgood" type="radio" value="notgood" name="feedback" formControlName="feedback">
+              <label for="notgood">Not Good</label>
+           	</div>
 	</div>
+	<br>
 	<div>
 	 	<label>Comments</label>
-	 	<textarea [innerHTML]="data.comment" name="comment"></textarea>
+	 	<textarea formControlName="comment" name="comment"></textarea>
 	</div>
 	<br>
-	<button class="submitbutton" (click)="onSubmit()">Submit</button> 
+	<button type="submit" class="submitbutton">Submit</button> 
 </form>
 <h3>Name: {{data.name}}</h3>
 <h3>Email: {{data.email}}</h3>
