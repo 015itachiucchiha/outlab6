@@ -12,6 +12,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class FormComponent implements OnInit {
   data: Details ;
+  temp: Details ;
   profileForm = this.fb.group({ name: '',email: '',feedback: '',comment: ''});
   
   constructor(private configService: ConfigService,private fb: FormBuilder) { }
@@ -30,9 +31,17 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.data = JSON.parse(JSON.stringify(this.profileForm.value)) ;
-  	this.configService.addPost(this.data).subscribe(data => console.log('Successfully posted to url.',this.data),
-    error => console.log('An error occurred while posting.', error)) ;
+    this.temp = JSON.parse(JSON.stringify(this.profileForm.value)) ;
+  	this.configService.addPost(this.temp).subscribe(data => this.datareceived(data),
+    error => alert('An error occurred while posting.')) ;
+  }
+
+  datareceived(data) {
+    this.data.name = data.name ;
+    this.data.email = data.email ;
+    this.data.feedback = data.feedback ;
+    this.data.comment = data.comment ;
+    alert('Successfully posted to url.') ;
   }
 
 }
