@@ -11,26 +11,28 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  data: Details ;
   profileForm = this.fb.group({ name: '',email: '',feedback: '',comment: ''});
   
   constructor(private configService: ConfigService,private fb: FormBuilder) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
   	this.showConfig() ;
   }
 
   showConfig() {
-    this.configService.getConfig().subscribe((data: Details) => this.profileForm = this.fb.group({
+    this.configService.getConfig().subscribe((data: Details) => this.data = {
         name: data.name,
         email: data.email,
         feedback: data.feedback,
         comment: data.comment
-    }));
+    });
   }
 
   onSubmit() {
-    console.warn(this.profileForm.value) ;
-  	this.configService.addPost(this.profileForm).subscribe() ;
+    this.data = JSON.parse(JSON.stringify(this.profileForm.value)) ;
+  	this.configService.addPost(this.data).subscribe(data => console.log('Successfully posted to url.',this.data),
+    error => console.log('An error occurred while posting.', error)) ;
   }
 
 }

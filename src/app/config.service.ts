@@ -27,7 +27,7 @@ export class ConfigService {
 	  	return this.http.get(this.configUrl);
 	}
 
-	addPost(data: FormGroup) {
+	addPost(data: Details) {
 		return this.http.post(this.postUrl,data) ;//.pipe(catchError(this.handleError()));
 	}
 
