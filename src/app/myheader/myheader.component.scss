@@ -1,14 +1,17 @@
 $purple: #8e44ad;
 .navbar{
-	 display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  margin-top:0px;
+  margin-right:20px;
+  margin-left:20px;
+  margin-bottom:30px;
+  padding-top:10px;
+  padding-bottom:10px;
   align-content: center;
+  position:fixed;height:80px;
 }
 .active{
- color: #fff;
- padding:20px;
+ color: #fff;margin-top:10px;
+ padding:10px;margin-left:30px;margin-right:30px;
  background:$purple;
 	text-decoration: none;
 	border-radius:0.5em;

@@ -5,8 +5,8 @@ import { MyheaderComponent } from './myheader';
 import { FormComponent } from './form';
 const routes: Routes = [
 { path: 'form',component: FormComponent },
-{ path: 'contact-page',component: ContactPageComponent },
-{ path: '**',redirectTo: 'contact-page' }
+{ path: 'contact',component: ContactPageComponent },
+{ path: '**',redirectTo: 'contact' }
 ];
 
 @NgModule({

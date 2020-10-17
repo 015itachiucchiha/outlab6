@@ -1,1 +1,54 @@
-<p>form works!</p>
+<div class="rt">
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()"class="mform">
+	<div>
+	 	<label>Name</label>
+	 	<input formControlName="name" type="text" name="name"style="width: 100%;
+    border: 5px solid #FFFFFF;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Open Sans' sans-serif;
+    font-size: 18px;
+    color: #25606f;">
+	</div>
+	<br>
+	<div>
+	 	<label>Email</label>
+	 	<input formControlName="email" type="email" name="email"style="width: 100%;
+    border: 5px solid #FFFFFF;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Open Sans' sans-serif;
+    font-size: 18px;
+    color: #25606f;">
+	</div>
+	<br>
+	<div>
+		<label for="feedback">Feedback:</label>
+            <div>
+              <input id="great" type="radio" value="great" name="feedback" formControlName="feedback">
+              <label for="great">Great</label>
+            </div>
+			<div>
+              <input id="okay" type="radio" value="okay" name="feedback" formControlName="feedback">
+              <label for="okay">Okay</label>
+           	</div>
+           	<div>
+              <input id="notgood" type="radio" value="notgood" name="feedback" formControlName="feedback">
+              <label for="notgood">Not Good</label>
+           	</div>
+	</div>
+	<br>
+	<div>
+	 	<label>Comments</label>
+	 	<textarea formControlName="comment" name="comment"></textarea>
+	</div>
+	<br>
+	<button type="submit" class="submitbutton">Submit</button> 
+</form>
+</div>
+<div class="disp">
+<h3>Name: <span style="background-color: #f5dc78;">{{data.name}}</span></h3>
+<h3>Email: <span style="background-color: #f5dc78;">{{data.email}}</span></h3>
+<h3>Feedback: <span style="background-color: #f5dc78;">{{data.feedback}}</span></h3>
+<h3>Comments: <span style="background-color: #f5dc78;">{{data.comment}}</span></h3>
+</div>

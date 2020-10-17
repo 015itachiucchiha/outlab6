@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { MyheaderComponent } from './myheader/myheader.component';
 import { FormComponent } from './form/form.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
